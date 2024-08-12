@@ -9,5 +9,6 @@
 
 #### - 02 August 2024 Preface - page 6
     Warm up and make plans.
+    
 #### - 12 August 2024 Preface - page 25
     Chapter 1 is done. A very rough overview of various macro models.
