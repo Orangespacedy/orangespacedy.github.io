@@ -1,11 +1,11 @@
-## Ubuntu 25.04 CUDA + cuDNN + Conda Jupyter notebook
+## Install CUDA + cuDNN + Conda Jupyter notebook on Ubuntu 25.04 plucky
 
 --- GPU 5060ti 16g, cpu AMD
 
-#### - 1. Install Nvidia driver for 5060ti in ubuntu 
+#### - 1. Install Nvidia driver for 5060ti on Ubuntu 25.04 plucky
 First, install Nvidia driver following this [forum discussion](https://forums.developer.nvidia.com/t/we-would-like-to-know-when-the-nvidia-drivers-for-5060ti-on-ubuntu-will-be-released/331207/2).
 
-#### - 2. Install CUDA and cuDNN in ubuntu
+#### - 2. Install CUDA and cuDNN on Ubuntu 25.04 plucky
 Second, install CUDA and cuDNN in ubuntu following [this](https://zhuanlan.zhihu.com/p/691711768).
 ##### 2.1 CUDA installation
 Following the instruction at the [cuda download site](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu).
@@ -41,8 +41,25 @@ $nvcc -V
 
 In case if installed the wrong cuda version, then need to remove old version first and then install new version,
 ```
-sudo apt remove nvidia-cuda-toolkit && sudo apt autoremove
-sudo apt-get -y install cuda-toolkit-xx-x
+$sudo apt remove nvidia-cuda-toolkit && sudo apt autoremove
+$sudo apt-get -y install cuda-toolkit-xx-x
 ```
 
 ##### 2.2 cuDNN installation
+Download the right version from [this site](https://developer.nvidia.com/rdp/cudnn-archive). Unzip and copy files to corresponding cuda paths
+```
+$tar -xvf cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz 
+$sudo cp cudnn-linux-x86_64-8.9.7.29_cuda12-archive/include/cudnn*.h    /usr/local/cuda/include
+$sudo cp cudnn-linux-x86_64-8.9.7.29_cuda12-archive/lib/libcudnn*    /usr/local/cuda/lib64
+$sudo chmod a+r /usr/local/cuda/include/cudnn.h   /usr/local/cuda/lib64/libcudnn*
+```
+Please remember to copy those * in the code, otherwise cannot correctly install cuDNN. If successful, you'll get result #define CUDNN_MAJOR x message from 
+```
+$cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+```
+or 
+```
+$cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+
+#### - 3. Install Anaconda and jupyter notebook on Ubuntu 25.04 plucky
