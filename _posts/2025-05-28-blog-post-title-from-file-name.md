@@ -1,4 +1,4 @@
-## Install CUDA + cuDNN + Conda Jupyter notebook on Ubuntu 25.04 plucky
+## Install CUDA, cuDNN, Anaconda, Jupyter Notebook, and Pytorch on Ubuntu 25.04 plucky, 2025 May
 
 --- GPU 5060ti 16g, cpu AMD
 
