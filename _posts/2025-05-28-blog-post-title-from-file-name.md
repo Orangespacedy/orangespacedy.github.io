@@ -92,5 +92,51 @@ $ conda activate myenv
 ```
 $ jupyter notebook
 ```
+#### - 3. Set Conda virtual environment and install pytorch
+##### Step 1. Set Conda virtual environment
+```
+$ conda activate myenv
+$ conda install ipykernel 
+$ ipython kernel install --user --name=myenv
+$ conda deactivate
+$ jupyter notebook
+```
+now you can see the newly created environment is in the kernel list of jupyter notebook.
+##### Step 2. Install pytorch
+PyTorch stopped providing conda packages starting [October 2024](https://github.com/pytorch/pytorch/issues/138506). Therefore, I use the o[fficially recommended method](https://pytorch.org/get-started/locally/) and installed PyTorch through pip3.
+
+Although Python 3 is usually installed by default on Ubuntu, pip is not. So, install pip with:
+```
+$ sudo apt install python3-pip
+```
+Then activate the environment and install pytorch
+```
+$ conda activate myenv
+$ pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+$ conda deactivate
+$ jupyter notebook
+```
+Now run in jupyter notebook selecting 'conda env:myenv' kernel
+```
+import torch
+print(torch.cuda.is_available())  # Should print: True
+print(torch.cuda.get_device_name(0))  # Should print: NVIDIA GeForce RTX 5060 Ti
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+print(device)
+print(torch.cuda.memory_allocated())  # Should return a non-zero value
+print(torch.cuda.is_available())  # Should print: True
+```
+
+In case if want to uninstalled old versions,
+```
+$ pip uninstall torch torchvision torchaudio -y
+$ pip cache purge
+```
+
+
+
+
 
 
