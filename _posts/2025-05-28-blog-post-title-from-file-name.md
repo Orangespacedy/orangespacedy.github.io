@@ -8,7 +8,7 @@ Reminder. Usually a newly installed ubuntu system has not yet set root password.
 ```
 $sudo passwd root
 ```
-Write your username (the one you set for the normal user when install)
+Write your username's password (the one you set for the normal user when install)
 then input twice the new password for root user. Done!
 To switch to another user or root
 ```
