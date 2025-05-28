@@ -4,6 +4,17 @@
 
 #### - 1. Install Nvidia driver for 5060ti on Ubuntu 25.04 plucky
 First, install Nvidia driver following this [forum discussion](https://forums.developer.nvidia.com/t/we-would-like-to-know-when-the-nvidia-drivers-for-5060ti-on-ubuntu-will-be-released/331207/2).
+Reminder. Usually a newly installed ubuntu system has not yet set root password. You may need to set a password for root first, for step init 3
+```
+$sudo passwd root
+```
+Write your username (the one you set for the normal user when install)
+then input twice the new password for root user. Done!
+To switch to another user or root
+```
+su - username
+su - root
+```
 
 #### - 2. Install CUDA and cuDNN on Ubuntu 25.04 plucky
 Second, install CUDA and cuDNN in ubuntu following [this](https://zhuanlan.zhihu.com/p/691711768).
