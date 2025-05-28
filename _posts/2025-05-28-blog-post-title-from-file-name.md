@@ -74,3 +74,23 @@ $cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 ```
 
 #### - 3. Install Anaconda and jupyter notebook on Ubuntu 25.04 plucky
+Following [this](https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-in-linux/), use Anaconda to install Jupyter Notebook.
+##### Step 1. Download Anaconda package, and then bash. Say yes when ask for adding paths to bashrc.
+```
+$ cd ~/Downloads
+$ chmod +x Anaconda3-2024.10-1-Linux-x86_64.sh
+$ bash Anaconda3-2024.10-1-Linux-x86_64.sh
+$ source ~/.bashrc
+$ conda --version
+```
+##### Step 2. Set up conda environment
+```
+$ conda create --name myenv 
+$ conda activate myenv
+```
+##### Step 3. Launch jupyter notebook
+```
+$Jupyter Notebook
+```
+
+
