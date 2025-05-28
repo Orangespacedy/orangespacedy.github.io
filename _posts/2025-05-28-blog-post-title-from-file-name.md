@@ -90,7 +90,7 @@ $ conda activate myenv
 ```
 ##### Step 3. Launch jupyter notebook
 ```
-$Jupyter Notebook
+$jupyter notebook
 ```
 
 
